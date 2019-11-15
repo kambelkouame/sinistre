@@ -11,19 +11,25 @@ module.exports =db.Sequelize.definie(
 	  autoIncrement:true
 	},
 	username:{
-		type:Sequelize
+		type:Sequelize.STRING
 
-	}
+	},
 	email:{
-		type:Sequelize
+		type:Sequelize.STRING
 
-	}
+	},
 
 	password:{
-		type:Sequelize
+		type:Sequelize.STRING
 
+	},
+
+	created:{
+	type:Sequelize.DATE,
+	defaultValue:Sequelize.NOW
 	}
-},
+
+},   
 {
 	timestamps:false
 })
