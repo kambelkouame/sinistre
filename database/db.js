@@ -1,19 +1,19 @@
-const Sequelize =require("sequilize")
-const db ={}
-const sequelize =new Sequelize("sinistre","root", "",{
-	host:'localhost',
-	dialect:'mysql',
-	operatorAliases:false,
+const Sequelize = require('sequelize')
+const db = {}
+const sequelize = new Sequelize('sinistre', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql',
+  operatorsAliases: false,
 
-	pool :{
-		max:5,
-		min:0,
-		acquire:30000,
-		idle:10000
-	}
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  }
 })
 
-db.Sequelize =Sequelize
-db.Sequelize =Sequelize
+db.sequelize = sequelize
+db.Sequelize = Sequelize
 
 module.exports = db

@@ -1,5 +1,21 @@
 import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
+import image from '../../img.png'
+
+import Avatar from '@material-ui/core/Avatar';
+import { makeStyles } from '@material-ui/core/styles';
+
+const classes = makeStyles({
+  avatar: {
+    margin: 10,
+  },
+  bigAvatar: {
+   
+    margin: 60,
+    width: 60,
+    height:60,
+  },
+});
 
 
 class Landing extends Component {
@@ -8,18 +24,19 @@ class Landing extends Component {
       <div style={{width: '100%', margin: 'auto'}}>
         <Grid className="landing-grid">
           <Cell col={12}>
-            <img
-              src="https://www.shareicon.net/download/2015/09/18/103157_man_512x512.png"
-              alt="avatar"
-              className="avatar-img"
-              />
+          
+
+          
+           <Avatar alt="Remy Sharp" src={image} className={classes.bigAvatar}/>
 
             <div className="banner-text">
-              <h1>Full Stack Web Developer</h1>
+              
+              <h1>Mon espace Assurance</h1>
+              
 
             <hr/>
 
-          <p>HTML/CSS | Bootstrap | JavaScript | React | React Native | NodeJS | Express | MongoDB</p>
+          <p>AUTOMOBILE | HABITATION | SANTE | VOYAGE </p>
 
         <div className="social-links">
 
