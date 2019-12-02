@@ -4,6 +4,7 @@ import image from '../../img.png'
 
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
+import Utils from './../../utils';
 
 const classes = makeStyles({
   avatar: {
@@ -21,11 +22,17 @@ const classes = makeStyles({
 class Landing extends Component {
   render() {
     return(
+
+     
       <div style={{width: '100%', margin: 'auto'}}>
+
+       <div>
+       
+      </div>
         <Grid className="landing-grid">
           <Cell col={12}>
           
-
+<br/> <br/> <br/> <br/> <br/> <br/>
           
            <Avatar alt="Remy Sharp" src={image} className={classes.bigAvatar}/>
 

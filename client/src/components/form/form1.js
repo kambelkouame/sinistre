@@ -32,6 +32,15 @@ const topSinistres = [
  
   ]
 
+  const topSinistres1 = [
+  { value: 'Vol' , label : "vol"},
+  { value: 'Bris de glace' , label : "bris de glace"},
+  { value: 'Vol d/Accessoires' , label : "vol 2"},
+  { value: 'Sinistres corporels' , label : "sinistres"},
+  { value: 'Recours' , label : "recours"},
+ 
+  ]
+
   const topAssurance = [
   { title: 'AXA' },
   { title: 'SAHAM' },
@@ -65,13 +74,14 @@ class Form1 extends Component {
   render() {
     return(
       <div >
+<br/><br/><br/>
        
 
        <React.Fragment>
         <CssBaseline />
 		      <Container fixed>
                  <Paper>
-
+         <form method="POST" action="http://localhost:9000/process" id="form">
                  <Grid  xs={12} >
 		      		<div >
 
@@ -81,105 +91,63 @@ class Form1 extends Component {
 
 					        </Grid>
 					        <Grid item xs={6}>
-                           			<div style={{ width: 500 }}>
-                           			<h5>Type de sinitre</h5>
-								      <Autocomplete
-								        multiple
-								        id="tags-outlined"
-								        options={topSinistres}
-								        getOptionLabel={option => option.title}
-								        filterSelectedOptions
-								        renderInput={params => (
-								          <TextField
-								            {...params}
-								            variant="outlined"
-								            label="Selection Multiple"
-								            placeholder="Selectionner votre sinistre"
-								            margin="50px"
-								            fullWidth
-								          />
-								        )}
-								      />
-                                 </div>
+                           		  <div style={{ width: 500 }}>
+						     <h5>sinistre</h5>
+						        <TextField
+						          id="outlined-basic"
+						          label="type de sinistre"
+						          name="type_sinistre"
+						          margin="normal"
+						          variant="outlined"
+						        />
+						      </div>
+                        
 
 					          
 					        </Grid>
 					        <Grid item xs={6}>
-					       <div style={{ width: 500 }}>
-                           			<h5>Votre Assurance</h5>
-								      <Autocomplete
-								        multiple
-								        id="tags-outlined"
-								        options={topAssurance}
-								        getOptionLabel={option => option.title}
-								        filterSelectedOptions
-								        renderInput={params => (
-								          <TextField
-								            {...params}
-								            variant="outlined"
-								            label="Selection Multiple"
-								            placeholder="Selectionner votre Assurance"
-								            margin="normal"
-								            fullWidth
-								          />
-								        )}
-								      />
-                                 </div>
-					          
+					        <div style={{ width: 500 }}>
+						     <h5>ville</h5>
+						        <TextField
+						          id="outlined-basic"
+						          label="ville"
+						          name="ville"
+						          margin="normal"
+						          variant="outlined"
+						        />
+						      </div>
+                        
 								      
 					        </Grid>
 					      
 
 					         <Grid item xs={6}>
 				
-						     <div style={{ width: 500 }}>
-						    <h5> Ville du Sinistre</h5>
-						       
-						        <Autocomplete
-								        multiple
-								        id="tags-outlined"
-								        options={topVille}
-								        getOptionLabel={option => option.title}
-								        filterSelectedOptions
-								        renderInput={params => (
-								          <TextField
-								            {...params}
-								            variant="outlined"
-								            label="Selection Multiple"
-								            placeholder="Selectionner la Ville"
-								            margin="normal"
-								            fullWidth
-								          />
-								        )}
-								      />
-
+						      <div style={{ width: 500 }}>
+						     <h5>assurance</h5>
+						        <TextField
+						          id="outlined-basic"
+						          label="assurance"
+						          name="assurance"
+						          margin="normal"
+						          variant="outlined"
+						        />
 						      </div>
+                        
                         
 					        </Grid>
 
 					         <Grid item xs={6}>
 				
-						     <div style={{ width: 500 }}>
-						    <h5> Commune du Sinitre</h5>
-						       
-						        <Autocomplete
-								        multiple
-								        id="tags-outlined"
-								        options={topCommune}
-								        getOptionLabel={option => option.title}
-								        filterSelectedOptions
-								        renderInput={params => (
-								          <TextField
-								            {...params}
-								            variant="outlined"
-								            label="Selection Multiple"
-								            placeholder="Selectionner la Commune"
-								            margin="normal"
-								            fullWidth
-								          />
-								        )}
-								      />
-
+						      <div style={{ width: 500 }}>
+						     <h5>Votre Immatriculation</h5>
+						        <TextField
+						          id="outlined-basic"
+						          label="commune"
+						          name="commune"
+						          margin="normal"
+						          variant="outlined"
+						        />
 						      </div>
                         
 					        </Grid>
@@ -192,6 +160,7 @@ class Form1 extends Component {
 						        <TextField
 						          id="outlined-basic"
 						          label="Immatriculation"
+						          name="immatriculation"
 						          margin="normal"
 						          variant="outlined"
 						        />
@@ -202,8 +171,8 @@ class Form1 extends Component {
 
 					        <Grid item xs={3}>
 
-					        <Button variant="contained" color="secondary">
-						        Next
+					        <Button variant="contained"  type="submit" color="secondary">
+						        soumettre
 						     </Button>
 					         
 					        </Grid>
@@ -218,7 +187,7 @@ class Form1 extends Component {
 
 		   
                 </Grid>
-
+</form>
                 </Paper>
 		      </Container>
     </React.Fragment>

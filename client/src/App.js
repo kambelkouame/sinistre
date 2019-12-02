@@ -1,118 +1,93 @@
 import React, { Component } from 'react';
-//import React from "react";
-import Icon from '@material-ui/core/Icon';
+import Main from './components/assure/main';
 import "./App.css";
 import "./App.scss";
-//import {BrowserRouter as Router,Route} from 'react-router-dom';
+import {BrowserRouter as Router,Route} from 'react-router-dom';
 import { Layout, Header, Navigation, Drawer, Content } from 'react-mdl';
-import Main from './components/assure/main';
-//import user from './user';
-import { Link } from 'react-router-dom';
+import Debut from './debut';
 import Conn from './Conn';
-import MenuIcon from '@material-ui/icons/Menu';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
-import IconButton from '@material-ui/core/IconButton';
+import Aboutme from './components/assure/aboutme';
+import { Link } from 'react-router-dom';
 
-
-import Backdrop from '@material-ui/core/Backdrop';
-import SpeedDial from '@material-ui/lab/SpeedDial';
-import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
-import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
-import FileCopyIcon from '@material-ui/icons/FileCopyOutlined';
-import SaveIcon from '@material-ui/icons/Save';
-import PrintIcon from '@material-ui/icons/Print';
-import ShareIcon from '@material-ui/icons/Share';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import LandingPage from './components/assure/landingpage';
+import AboutMe from './components/assure/aboutme';
+import Contact from './components/assure/contact';
+import Projects from './components/assure/projects';
+import Resume from './components/assure/resume';
 
 
 
 
-const classes = makeStyles(theme => ({
-  root: {
-    height: 380,
-    transform: 'translateZ(0px)',
-    flexGrow: 1,
-  },
-  speedDial: {
-    position: 'absolute',
-    bottom: theme.spacing(2),
-    right: theme.spacing(2),
-  },
-}));
-
-const actions = [
-  { icon: <FileCopyIcon />, name: 'Copy' },
-  { icon: <SaveIcon />, name: 'Save' },
-  { icon: <PrintIcon />, name: 'Print' },
-  { icon: <ShareIcon />, name: 'Share' },
-  { icon: <FavoriteIcon />, name: 'Like' },
-];
+import Form from './components/assure/form';
+import Form2 from './components/form/form2';
+import Checkout from './components/form/Checkout';
+import Dashboard from './components/assurance/Dashboard.js';
+import Auto from './components/assurance/auto';
+import Ordres from './components/ordres/Ordres'
 
 
  
-
-
-
-
 class App extends Component {
 
- 
 
-  render() {
- 
+   constructor(props) {
+    super(props);
+    this.state = { apiResponse: "" };
+}
 
-  
+callAPI() {
 
+  /*  const data=new URLSearchParams();
+    for(const pair of new FormData(document.getElementById("form"))){
 
-    return (
+      data.append(pair[0],pair[1])
+    }
+    fetch("http://localhost:9000/process" ,{ 
+      method: "post",
+      body: {
+        type_sinsitre:"azee",
+        ville:"ville",
+        assurance:"assurance",
+        commune:"commune",
+        immatriculation:56868686,
+   }
+})
+        .then(res => res.json())
+        .then(res => this.setState({ apiResponse: res }));*/
+}
 
-    //  const classes = useStyles();
-      <div className="demo-big-content">
-    <Layout>
-        <Header className="header-color" title={<Link style={{textDecoration: 'none', color: 'white'}} to="/app/assure">Mon Espace Assurance</Link>} scroll>
-            <Navigation>
-                <Link to="/app/assure/resume">Profile Assurance</Link>
-                <Link to="/app/assure/projects">Biens Assurés</Link>
-                <Link to="/app/assure/aboutme">Sinistre en Cours</Link>
-                <Link to="/app/assure/contact">Contact</Link>
-                <IconButton  aria-label="delete">
-                  Off _<PowerSettingsNewIcon/>
-                </IconButton>
-            </Navigation>
-        </Header>
-  <MenuIcon/> <Drawer  title={<Link style={{textDecoration: 'none', color: 'black'}} to="/app/assure">Mon Espace</Link>}>
-            <Navigation>
-          
-              <Link to="/app/assure/resume">Profile Assurance</Link>
-               <Link to="/app/assure/projects">Biens Assurés</Link> 
-              <Link to="/app/assure/aboutme">Sinistre en Cours</Link>
-              <Link to="/app/assure/contact">Deconnexion</Link>
-            </Navigation>
-        </Drawer>
-
-        <Content>
-            <div className="page-content" />
-           <Main/>
-
-    <div>
-       
-      </div>
-
-        </Content>
-    </Layout>
-
-    
-
-
-
-</div>
-
-    );
-  }
+componentWillMount() {
+    this.callAPI();
 }
 
 
+
+  render() {
+    return(
+
+
+    <Router>
+      <Route path="/" exact component ={Conn}/>
+      <Route path="/app/assure" exact component ={Debut}/>
+      <Route path="/app/assure/resume" component={Resume} />
+      <Route path="/app/assure/aboutme" component={AboutMe} />
+      <Route path="/app/assure/contact" component={Contact} />
+      <Route path="/app/assure/projects" component={Projects} />
+      <Route exact path="/app/assure/process" component={Form} />
+      <Route exact path="/app/assure/process!" component={Form2} />
+      <Route exact path="/app/assure/Step" component={Checkout} />
+      <Route exact path="/app/assurance/Dashboard" component={Dashboard}/>
+      <Route exact path="/app/assurance/Auto" component={Auto}/>
+      <Route exact path="/app/ordres/Ordres" component={Ordres}/>
+
+    
+    
+
+    </Router>
+
+    
+  )
+  }
+}
 
 export default App;

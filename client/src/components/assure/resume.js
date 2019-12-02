@@ -5,12 +5,18 @@ import Experience from './experience';
 import Skills from './skills';
 import image from '../../img.png'
 
+import Utils from './../../utils';
+
 
 class Resume extends Component {
   render() {
     return(
+      
+
       <div>
+        <Utils/>
         <Grid>
+        <br/><br/><br/><br/>
           <Cell col={4}>
             <div style={{textAlign: 'center'}}>
               <img
@@ -30,9 +36,9 @@ class Resume extends Component {
             <h5>Phone</h5>
             <p>(123) 456-7890</p>
             <h5>Email</h5>
-            <p>someone@example.com</p>
+            <p>someone@siin</p>
             <h5>Web</h5>
-            <p>mywebsite.com</p>
+            <p>zzzzzzzzzz</p>
             <hr style={{borderTop: '3px solid #833fb2', width: '50%'}}/>
           </Cell>
           <Cell className="resume-right-col" col={8}>

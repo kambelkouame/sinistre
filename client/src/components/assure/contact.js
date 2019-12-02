@@ -12,6 +12,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Paper from '@material-ui/core/Paper';
 
+import Utils from './../../utils';
+
 
 
 
@@ -20,7 +22,13 @@ class Contact extends Component {
   render() {
     return(
 
+
+      
      <div >
+
+      <div>
+           <Utils/>
+       </div>
        
 
                <React.Fragment>
