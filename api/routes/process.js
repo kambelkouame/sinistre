@@ -82,7 +82,7 @@ router.post("/", function(req, res){
           let url1='http://localhost:5001/transaction';
 
 		 
-		   	fetch(url1,
+		   	/*fetch(url1,
 		   	  {
 		   	  method: "POST",
 		   	  headers: {
@@ -97,7 +97,18 @@ router.post("/", function(req, res){
 		   	console.log("retour blockchain", data)
 		   })
 
+        */
 
+
+
+
+        fetch(url1, {
+        method: 'post',
+        body:    donnechain,
+        headers: { 'Content-Type': 'application/json' },
+    })
+    .then(res => res.json())
+    .then(json => console.log(json));
 
 })
 
